@@ -1,0 +1,65 @@
+import { useEffect, useState, type SetStateAction } from "react";
+
+function TableBox() {
+  const [mode, setMode] = useState("Encode"); // "Encode" o "Decode"
+  const [inputText, setInputText] = useState("");
+  const [result, setResult] = useState("");
+
+  // Efecto para cambiar el título de la página
+  useEffect(() => {
+    document.title = mode;
+  }, [mode]);
+
+  // Manejar el cambio entre modos al hacer clic en las opciones
+  const handleModeChange = (selectedMode: SetStateAction<string>) => {
+    setMode(selectedMode);
+  };
+
+  const handleSubmit = async () => {
+    fetch("https://encode-decode-jejo.onrender.com/api/" + mode.toLowerCase(), {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        text: inputText,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => setResult(data.text));
+  };
+
+  return (
+    <div className="ibox">
+      <div className="iboxlista">
+        <ul className="ilista">
+          <li
+            onClick={() => handleModeChange("Encode")}
+            className={mode === "Encode" ? "active" : ""}
+          >
+            Encode
+          </li>
+          <li
+            onClick={() => handleModeChange("Decode")}
+            className={mode === "Decode" ? "active" : ""}
+          >
+            Decode
+          </li>
+        </ul>
+      </div>
+      <input
+        type="text"
+        placeholder={`Ingrese el texto a ${mode.toLowerCase()}`}
+        className="iinput"
+        value={inputText}
+        onChange={(e) => setInputText(e.target.value)}
+      />
+      <button className="iboton" onClick={handleSubmit}>
+        {mode}
+      </button>
+      <textarea className="itextbox" readOnly value={result} />
+    </div>
+  );
+}
+
+export default TableBox;
