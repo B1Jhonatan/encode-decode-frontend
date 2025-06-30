@@ -1,5 +1,5 @@
 import "./App.css";
-import TableBox from "./assets/components/TableBox";
+import PageMain from "./assets/components/pages/PageMain";
 
 window.addEventListener("load", () => {
   fetch("https://encode-decode-jejo.onrender.com/wake-up/")
@@ -10,7 +10,7 @@ window.addEventListener("load", () => {
 function App() {
   return (
     <>
-      <TableBox />
+      <PageMain />
     </>
   );
 }

@@ -1,9 +1,14 @@
+.i-page {
+  width: 100%;
+  height: 100vh;
+  align-content: center;
+}
+
 .ibox {
   width: 50vw;
   padding: 40px;
   border-radius: 20px;
   margin: auto;
-  margin-top: 10vh;
   border: 2px solid;
   border-color: beige;
 }
@@ -55,6 +60,7 @@
   font-size: 20px;
   padding: 10px;
   border-radius: 10px;
+  cursor: pointer;
 }
 
 .active {

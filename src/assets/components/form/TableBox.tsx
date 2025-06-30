@@ -1,5 +1,5 @@
 import { useEffect, useState, type SetStateAction } from "react";
-import BotonComponent from "./botones/BotonComponent";
+import BotonComponent from "../botones/BotonComponent";
 
 function TableBox() {
   const [mode, setMode] = useState("Encode"); // "Encode" o "Decode"
