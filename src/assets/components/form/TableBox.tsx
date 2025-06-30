@@ -14,6 +14,7 @@ function TableBox() {
   // Manejar el cambio entre modos al hacer clic en las opciones
   const handleModeChange = (selectedMode: SetStateAction<string>) => {
     setMode(selectedMode);
+    setInputText("");
   };
 
   const handleSubmit = async () => {
