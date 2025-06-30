@@ -1,4 +1,5 @@
 import { useEffect, useState, type SetStateAction } from "react";
+import BotonComponent from "./botones/BotonComponent";
 
 function TableBox() {
   const [mode, setMode] = useState("Encode"); // "Encode" o "Decode"
@@ -32,20 +33,16 @@ function TableBox() {
   return (
     <div className="ibox">
       <div className="iboxlista">
-        <ul className="ilista">
-          <li
-            onClick={() => handleModeChange("Encode")}
-            className={mode === "Encode" ? "active" : ""}
-          >
-            Encode
-          </li>
-          <li
-            onClick={() => handleModeChange("Decode")}
-            className={mode === "Decode" ? "active" : ""}
-          >
-            Decode
-          </li>
-        </ul>
+        <BotonComponent
+          nombre="Encode"
+          onClick={() => handleModeChange("Encode")}
+          css={mode === "Encode" ? "active" : ""}
+        />
+        <BotonComponent
+          nombre="Decode"
+          onClick={() => handleModeChange("Decode")}
+          css={mode === "Decode" ? "active" : ""}
+        />
       </div>
       <input
         type="text"
@@ -54,9 +51,9 @@ function TableBox() {
         value={inputText}
         onChange={(e) => setInputText(e.target.value)}
       />
-      <button className="iboton" onClick={handleSubmit}>
-        {mode}
-      </button>
+      <div>
+        <BotonComponent nombre={mode} onClick={handleSubmit} css={"iboton"} />
+      </div>
       <textarea className="itextbox" readOnly value={result} />
     </div>
   );
