@@ -1,4 +1,4 @@
-import TableBox from "../form/TableBox";
+import TableBox from "../components/form/TableBox";
 
 export default function pageMain() {
   return (

@@ -1,5 +1,5 @@
 import "./App.css";
-import PageMain from "./assets/components/pages/PageMain";
+import PageMain from "./assets/pages/PageMain";
 
 window.addEventListener("load", () => {
   fetch("https://encode-decode-jejo.onrender.com/wake-up")
